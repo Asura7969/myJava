@@ -18,6 +18,7 @@ public class MemoryMappingExample {
         long totalcount = fos.getChannel().position();
         System.out.println("Serialized total count = " + totalcount + " bytes");
         fos.close();
+
         RandomAccessFile memoryMappedFile = new RandomAccessFile(tmpfile, "r");
         ByteBuffer bb = memoryMappedFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, totalcount);
         EWAHCompressedBitmap mapped = new EWAHCompressedBitmap(bb);
