@@ -1,4 +1,4 @@
-package org.myJava.juc.delayqueue;
+package org.myJava.juc.queue.delay;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +27,7 @@ public class DelayQueueDemo {
              */
             Order task = delayQueue.poll();
             Order task1 = delayQueue.take();
+            System.out.println(task);
 
 
             if (task1 != null) {
