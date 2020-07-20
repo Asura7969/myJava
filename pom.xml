@@ -12,6 +12,7 @@
         <module>myJava-juc</module>
         <module>myJava-design-pattern</module>
         <module>myJava-algorithm</module>
+        <module>myJava-calcite</module>
     </modules>
 
     <dependencies>

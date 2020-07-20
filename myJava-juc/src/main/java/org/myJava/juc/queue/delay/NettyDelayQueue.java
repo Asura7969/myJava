@@ -1,4 +1,4 @@
-package org.myJava.juc.delayqueue;
+package org.myJava.juc.queue.delay;
 
 import io.netty.util.HashedWheelTimer;
 import io.netty.util.Timeout;

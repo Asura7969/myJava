@@ -17,18 +17,20 @@ public class FindNumber {
     public FindNumber(int capacity) {
         this.capacity = capacity;
 
-        //1bit能存储8个数据，那么capacity数据需要多少个bit呢，capacity/8+1,右移3位相当于除以8
+        //1bit能存储8个数据，那么capacity数据需要多少个bit呢，(capacity/8)+1,右移3位相当于除以8
         bits = new byte[(capacity >> 3) + 1];
+        System.out.println("初始化容量:" + ((capacity >> 3) + 1));
     }
 
     public void add(int num) {
         // num/8得到byte[]的index
         int arrayIndex = num >> 3;
-        System.out.println(arrayIndex);
-        System.out.println(num / 8);
+        System.out.println(num + " 对应的索引位:" + arrayIndex);
 
         // num%8得到在byte[index]的位置
         int position = num & 0x07;
+        System.out.println("(num & 0x07) = (num % 8) :" + ((num & 0x07) == (num % 8)));
+        System.out.println("0x07 = " + 0x07);
         System.out.println(position);
 
         //将1左移position后，那个位置自然就是1，然后和以前的数据做|，这样，那个位置就替换成1了。
@@ -59,9 +61,9 @@ public class FindNumber {
     }
 
     public static void main(String[] args) {
-        FindNumber bitmap = new FindNumber(999999999);
-        bitmap.add(7);
-        System.out.println("插入7成功");
+        FindNumber bitmap = new FindNumber(100);
+        bitmap.add(10);
+        System.out.println("插入10成功");
 
         boolean isexsit = bitmap.contain(7);
         System.out.println("7是否存在:" + isexsit);
