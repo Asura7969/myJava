@@ -2,6 +2,8 @@ package org.myJava.juc.queue;
 
 /**
  * 死锁
+ * jps -l 列出当前进程
+ * jstack pid 查看堆栈内容(最后会有死锁提示)
  */
 public class DeadLock {
 
