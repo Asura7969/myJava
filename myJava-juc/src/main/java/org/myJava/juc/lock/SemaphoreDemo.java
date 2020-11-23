@@ -1,4 +1,4 @@
-package org.myJava.juc.queue;
+package org.myJava.juc.lock;
 
 import java.util.concurrent.Semaphore;
 

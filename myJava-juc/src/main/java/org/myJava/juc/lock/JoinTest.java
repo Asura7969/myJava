@@ -1,4 +1,4 @@
-package org.myJava.juc.queue;
+package org.myJava.juc.lock;
  
 public class JoinTest {
     public static void main(String[] args) {
