@@ -17,7 +17,7 @@ public class SelectionSort {
         }
         int currIndex = 0;
         while (currIndex < arr.length - 1){
-            for (int i = currIndex; i < arr.length; i++) {
+            for (int i = currIndex + 1; i < arr.length; i++) {
                 if(arr[i] < arr[currIndex]){
                     swap(arr, i, currIndex);
                 }
