@@ -1,5 +1,7 @@
 package org.myJava.algorithm;
 
+import java.util.concurrent.ArrayBlockingQueue;
+
 /**
  * 二分查找
  */
