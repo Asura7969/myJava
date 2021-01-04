@@ -18,8 +18,8 @@ public class ReentranLock {
             if(peek.equals(currentThread)){
                 state += 1;
             } else {
-                System.out.println("阻塞当前线程 " + currentThread.getName() + " ,有线程正在执行");
                 LockSupport.park(currentThread);
+                System.out.println("阻塞当前线程 " + currentThread.getName() + " ,有线程正在执行");
                 queue.add(currentThread);
             }
         } else {
@@ -59,6 +59,7 @@ public class ReentranLock {
         public void plus(){
             lock.lock();
             i ++;
+            get();
             lock.unlock();
         }
 
@@ -76,19 +77,16 @@ public class ReentranLock {
             try {
                 for (int i = 0; i < 3; i++) {
                     num.plus();
-                    num.get();
                     System.out.println("t1 执行完毕");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         },"thread-1").start();
-        Thread.sleep(2000L);
         new Thread(() -> {
             try {
                 for (int i = 0; i < 2; i++) {
                     num.plus();
-                    num.get();
                     System.out.println("t2 执行完毕");
                 }
             } catch (Exception e) {
