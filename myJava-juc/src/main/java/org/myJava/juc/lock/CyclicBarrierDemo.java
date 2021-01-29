@@ -7,7 +7,14 @@ public class CyclicBarrierDemo {
 
     public static void main(String[] args) {
         int N = 4;
-        CyclicBarrier barrier = new CyclicBarrier(N);
+        CyclicBarrier barrier = new CyclicBarrier(N,() -> {
+            try{
+                System.out.println("等待2s");
+                Thread.sleep(2000);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
         for (int i = 0; i < N; i++)
             new Writer(barrier).start();
     }

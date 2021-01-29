@@ -1,6 +1,6 @@
 package org.myJava.juc.custom;
 
-public class Test {
+public class QueueTest {
     public static void main(String[] args) {
         SampleBlockQueue<String> q = new SampleBlockQueue<>(10);
         try {
