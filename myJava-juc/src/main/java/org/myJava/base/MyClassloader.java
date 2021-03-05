@@ -21,13 +21,13 @@ public class MyClassloader extends ClassLoader {
         File classFile = new File(classFilename);
         if (classFile.exists()) {
             try (FileChannel fileChannel = new FileInputStream(classFile).getChannel()) {
-                MappedByteBuffer mappedByteBuffer = fileChannel
-                        .map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
-
-                byte[] b = mappedByteBuffer.array();
-//                byte[] b = Files.readAllBytes(Paths.get(new URI(classFilename)));
+//                MappedByteBuffer mappedByteBuffer = fileChannel
+//                        .map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
+//
+//                byte[] b = mappedByteBuffer.array();
+                byte[] b = Files.readAllBytes(Paths.get(new URI(classFilename)));
                 clazz = defineClass(name, b, 0, b.length);
-            } catch (IOException e) {
+            } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }
         } else {
@@ -41,7 +41,7 @@ public class MyClassloader extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
         MyClassloader myClassLoader = new MyClassloader();
-        Class clazz = myClassLoader.loadClass("Hello");
+        Class clazz = myClassLoader.loadClass("file://./Users/gongwenzhou/IdeaProjects/myJava/myJava-juc/src/main/java/org/myJava/base/Hello");
         Method sayHello = clazz.getMethod("sayHello");
         sayHello.invoke(null, null);
     }

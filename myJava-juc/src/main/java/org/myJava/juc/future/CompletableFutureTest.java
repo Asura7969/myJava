@@ -9,10 +9,11 @@ public class CompletableFutureTest {
 
     public static void main(String[] args) throws InterruptedException {
         CompletableFuture<String> cf = CompletableFuture.supplyAsync(CompletableFutureTest::syncIo);
-        System.out.println("main 线程等待返回结果！");
         cf.thenAccept((result) -> {
             System.out.println("返回结果是: " + result);
         });
+        System.out.println("main 线程等待返回结果！");
+
         // 异常处理
         cf.exceptionally((e) -> {
             e.printStackTrace();
