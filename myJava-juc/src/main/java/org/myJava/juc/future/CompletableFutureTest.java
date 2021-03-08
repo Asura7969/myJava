@@ -22,11 +22,11 @@ public class CompletableFutureTest {
                     new ThreadPoolExecutor.CallerRunsPolicy());
 
     public static void main(String[] args) throws Exception {
-
+        supplyAsync();
 //        thenRunAsync();
 //        thenAcceptAsync();
 //        whenCompleteAsync();
-        thenCompose();
+//        thenCompose();
 
 
 
@@ -100,18 +100,17 @@ public class CompletableFutureTest {
         cf.thenAccept((result) -> {
             System.out.println("返回结果是: " + result);
         });
-        System.out.println("main 线程等待返回结果！");
 
         // 异常处理
         cf.exceptionally((e) -> {
             e.printStackTrace();
             return null;
         });
-        try {
-            Thread.sleep(10000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println("main 线程等待返回结果！");
+
+        cf.join();
+        System.out.println("join 阻塞");
+
     }
 
     public static String syncIo() {
