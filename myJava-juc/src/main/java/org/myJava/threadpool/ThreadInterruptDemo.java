@@ -15,6 +15,7 @@ public class ThreadInterruptDemo {
                     list.add("" + i);
                     i += 1;
                 }
+                System.out.println("线程中断后还会继续执行循环外的数据");
             } catch (InterruptedException e) {
                 /**
                  * 注：线程抛出异常（InterruptedException）后会 清除中断标记
