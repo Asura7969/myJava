@@ -13,6 +13,7 @@
         <module>myJava-design-pattern</module>
         <module>myJava-algorithm</module>
         <module>myJava-calcite</module>
+        <module>myJava-base</module>
     </modules>
 
     <dependencies>
