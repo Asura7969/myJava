@@ -1,4 +1,4 @@
-package org.myJava.juc.future;
+package org.myJava.base.future;
 
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
@@ -22,11 +22,11 @@ public class CompletableFutureTest {
                     new ThreadPoolExecutor.CallerRunsPolicy());
 
     public static void main(String[] args) throws Exception {
-        supplyAsync();
+//        supplyAsync();
 //        thenRunAsync();
 //        thenAcceptAsync();
 //        whenCompleteAsync();
-//        thenCompose();
+        thenCompose();
 
 
 
