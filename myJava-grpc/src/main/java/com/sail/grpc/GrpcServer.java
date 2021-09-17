@@ -14,6 +14,7 @@ public class GrpcServer {
                 .addService(new StudentServiceImpl()).build().start();
         System.out.println("server started！");
 
+
         // 这里在关闭JVM的时候会执行JVM回调钩子
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("关闭jvm");
