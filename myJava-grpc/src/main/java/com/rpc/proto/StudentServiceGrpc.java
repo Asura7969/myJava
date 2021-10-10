@@ -1,4 +1,4 @@
-package com.sail.proto;
+package com.rpc.proto;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -24,7 +24,7 @@ public final class StudentServiceGrpc {
 
   private StudentServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.sail.proto.StudentService";
+  public static final String SERVICE_NAME = "com.rpc.proto.StudentService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<MyRequest,

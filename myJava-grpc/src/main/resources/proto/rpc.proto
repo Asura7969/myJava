@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package com.asura.rpc;
+
+option java_package = "com.asura.proto";
+option java_outer_classname = "RpcProto";
+option java_multiple_files = true;
+option optimize_for = SPEED;
+
+message Message {
+
+  enum DataType {
+    requestType = 0;
+    responseType = 1;
+  }
+
+  DataType data_type = 1;
+  oneof dataBody {
+    Response response = 2;
+    Request request = 3;
+  }
+
+  uint64 time = 4;
+
+}
+
+message Request {
+  int32 id = 1;
+  string ip = 2;
+  int32 port = 3;
+
+  enum RequestType {
+    fileType = 0;
+    oneWayType = 1;
+    rpcType = 2;
+  }
+
+  RequestType request_type = 4;
+
+  oneof messageBody {
+    FileMessage file = 5;
+    OneWayMessage oneWay = 6;
+    RpcRequest rpcRequest = 7;
+  }
+}
+
+message Response {
+  enum ResponseType {
+    successType = 0;
+    failType = 1;
+    rpcType = 2;
+  }
+
+  ResponseType response_type = 1;
+  oneof messageBody {
+    SuccessMessage success = 2;
+    FailMessage fail = 3;
+    RpcResponse rpcResponse = 4;
+  }
+}
+
+// request
+message FileMessage {
+  // 文件名
+  string name = 1;
+  // 内容
+  bytes data = 2;
+}
+
+message OneWayMessage {
+  bytes data = 1;
+}
+
+message RpcRequest {
+  bytes data = 1;
+}
+
+// response
+message SuccessMessage {
+
+}
+
+message FailMessage {
+  string content = 1;
+}
+
+message RpcResponse {
+  bytes data = 1;
+}
+

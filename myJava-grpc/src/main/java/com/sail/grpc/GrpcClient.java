@@ -1,6 +1,6 @@
 package com.sail.grpc;
 
-import com.sail.proto.*;
+import com.rpc.proto.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
